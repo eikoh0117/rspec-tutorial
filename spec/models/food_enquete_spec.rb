@@ -29,9 +29,10 @@ RSpec.describe FoodEnquete, type: :model do
 
   describe '入力項目の有無' do
 
+    let(:new_enquete) { FoodEnquete.new }
+
     context '必須入力であること' do
       # [Point.3-4-1]itを複数書くことができます。
-      let(:new_enquete) { FoodEnquete.new }
       it 'お名前が必須であること' do
         # [Point.3-4-2]バリデーションエラーが発生することを検証します。
         expect(new_enquete).not_to be_valid
@@ -54,7 +55,6 @@ RSpec.describe FoodEnquete, type: :model do
 
     context '任意入力であること' do
       it 'ご意見・ご要望が任意であること' do
-        new_enquete = FoodEnquete.new
         expect(new_enquete).not_to be_valid
         # [Point.3-4-6]必須入力のメッセージが含まれないことを検証します。
         expect(new_enquete.errors[:request]).not_to include(I18n.t('errors.messages.blank'))
