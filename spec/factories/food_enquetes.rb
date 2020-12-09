@@ -1,4 +1,8 @@
 FactoryBot.define do
+
+  factory :food_enquete do
+  end
+
   factory :food_enquete_tanaka, class: 'FoodEnquete' do
     name { '田中 太郎' }
     mail { 'taro.tanaka@example.com' }
